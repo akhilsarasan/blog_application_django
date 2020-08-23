@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+
+{% extends 'blog/index.html' %}
+
+{% block body_block %}
+<h1>{{ blogcontent.blog_head }}</h1>
+{{ blogcontent.blog_content }}
+
+<h4 id='k'>published on:<p id='p'>{{blogcontent.pub_date}}</p></h4>
+
+<h3>COMMENTS</h3>
+
+{% for com in order %}
+    <p id='k'><strong>{{com}}</strong>, commented on:{{com.co_date}}</p>
+{% endfor%}
+<a href="{% url 'blog:comment' blogcontent.id %}">Comment</a>
+
+
+{% endblock %}

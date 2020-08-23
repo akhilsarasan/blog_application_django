@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+{% extends 'blog/index.html' %}
+
+{% block body_block %}
+
+<h1>ADD YOUR COMMENT</h1>
+<p>you are going to add comment on:{{blo.blog_head}}</p>
+
+<form action="{% url 'blog:ack' blog_id %}" method="post">
+{% csrf_token %}
+
+<input type="text" name="comment" value="" placeholder="add comment here">
+
+<input type="submit" value="Comment">
+</form>
+
+
+ {% endblock %}
